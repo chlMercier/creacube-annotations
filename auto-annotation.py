@@ -34,8 +34,8 @@ def process_data(file_path):
     data = pd.read_csv(file_path, sep=',', skiprows=range(0, 6), header=6, low_memory=False)
 
     cube_coords = {
-        'I': data.iloc[:, 3:7].values,
-        'W': data.iloc[:, 11:15].values,
+        'W': data.iloc[:, 3:7].values,
+        'I': data.iloc[:, 11:15].values,
         'B': data.iloc[:, 19:23].values,
         'S': data.iloc[:, 27:31].values,
     }
