@@ -14,6 +14,38 @@ At the moment, videos of the participants are manually annotated using an encodi
 
 The `in-out_examples` folder contain examples of logs returned by the computer vision model (in) and logs manually annotated (out). This project aims to transform the former into the latter.
 
+`auto-annotation.py` is a script that processes CSV files that contain data about cubes retrieved from the computer vision model from the CreaCube project, and converts them into a JSON format, storing the results in a specified directory. The script handles both individual files and directories containing multiple CSV files.
+
+## Auto-annotation
+
+### How to use
+
+1. Ensure you have Python and the necessary packages installed:
+   - `pandas`
+   - `numpy`
+
+   You can install them using:
+
+   ```shell
+   pip install pandas numpy
+   ```
+
+2. Place your CSV files in an appropriate directory or provide the path to an individual file.
+
+3. Run the script:
+
+   ```shell
+   python script_name.py path_to_file_or_directory
+   ```
+
+   - If you provide a path to a single CSV file, the script will process that file.
+   - If you provide a path to a directory, the script will iterate over each `.csv` file in the directory and process them.
+
+4. Results will be saved in the `data` directory in JSON format.
+
+   - If the directory does not exist, it will be created.
+   - If a JSON file already exists for a given CSV file, it will be overwritten.
+
 ## How to install and run
 
 Install the requirements, preferably in a virtual environment; we recommend using Pipenv:
