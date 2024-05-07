@@ -7,8 +7,8 @@ import os
 with open("configurations.json", "r", encoding="UTF-8") as config:
     CONFIGURATIONS = json.load(config)
 
-OUTPUT_DIR = 'data'
-INPUT_DIR = 'in-out_examples\\p359'
+OUTPUT_DIR = 'automatically_annotated_data'
+INPUT_DIR = 'raw_data'
 
 # Function to calculate the center of a rectangle
 def center_of_rectangle(x1, y1, x2, y2):
@@ -36,8 +36,8 @@ def process_data(file_path):
     cube_coords = {
         'W': data.iloc[:, 3:7].values,
         'I': data.iloc[:, 11:15].values,
-        'B': data.iloc[:, 19:23].values,
-        'S': data.iloc[:, 27:31].values,
+        'S': data.iloc[:, 19:23].values,
+        'B': data.iloc[:, 27:31].values,
     }
 
     timestamps = data.iloc[:, 0]
@@ -90,7 +90,7 @@ def process_data(file_path):
         matched_config = next((config_key for config_key, config_vals in CONFIGURATIONS.items() if len(connections) == 3 and set(connections).issubset(set(config_vals.keys()))), None)
 
         # Convert timestamp to seconds
-        timestamp_seconds = timestamp // 60
+        timestamp_seconds = timestamp // 16
 
         # Only add new configurations or reappearances
         if matched_config != last_config:
