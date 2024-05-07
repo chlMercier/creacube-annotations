@@ -35,13 +35,14 @@ The `in-out_examples` folder contain examples of logs returned by the computer v
 3. Run the script:
 
    ```shell
-   python script_name.py path_to_file_or_directory
+   python auto_annotation.py path_to_file_or_directory
    ```
 
    - If you provide a path to a single CSV file, the script will process that file.
    - If you provide a path to a directory, the script will iterate over each `.csv` file in the directory and process them.
+   - If you do not provide any path, the script will by default iterate over each `.csv` file in the `raw_data` directory and process them.
 
-4. Results will be saved in the `data` directory in JSON format.
+4. Results will be saved in the `automatically_annotated_data` directory in JSON format.
 
    - If the directory does not exist, it will be created.
    - If a JSON file already exists for a given CSV file, it will be overwritten.
